@@ -10,12 +10,17 @@ class App extends Component {
     ]
     return (
       <div className="App">
+
         {
-          matrix.map((row, rowIndex) => {
-            return row.map((col, colIndex)=>{
-              return <span>{matrix[rowIndex][colIndex]}</span>
-            })
-          })
+          matrix.map((row, rowIndex) => (
+            <p key={rowIndex}>
+              {
+                row.map((char, colIndex) => (
+                  <span key={colIndex}>{char}</span>
+                ))
+              }
+            </p>
+          ))
         }
       </div>
     );
