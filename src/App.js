@@ -1,43 +1,39 @@
 import React, { Component } from 'react';
 import './App.css';
+import Column from './Column.js'
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.state={
-      activeChar: [0,0],
-      matrix : []
+    this.state = {
+      activeChar: [0, 0],
+      matrix: []
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     let matrix = []
-    for (let i = 0; i < 30;i++){
+    for (let i = 0; i < 78; i++) {
       matrix.push([])
-      for (let j=0; j< 50; j++){
-        matrix[i].push('0')
+      for (let j = 0; j < 40; j++) {
+        matrix[i].push('')
       }
     }
     this.setState({
       matrix
     })
   }
-  getRandomPosition(){
+
+  getRandomPosition() {
   }
 
-  
+
   render() {
     return (
-      <div className="App" style={{backgroundColor: 'black'}}>
+      <div className="App" style={{ backgroundColor: 'black', displayFlex: 'flex'}}>
         {
           this.state.matrix.map((row, rowIndex) => (
-            <p style={{lineHeight:'0.3em'}} key={rowIndex}>
-              {
-                row.map((char, colIndex) => (
-                  <span style={{color: 'green'}} key={colIndex}>{char}</span>
-                ))
-              }
-            </p>
+            <Column row={row} rowIndex={rowIndex}/>
           ))
         }
       </div>
@@ -46,3 +42,4 @@ class App extends Component {
 }
 
 export default App;
+
